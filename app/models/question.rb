@@ -1,6 +1,5 @@
 class Question < ActiveRecord::Base
 
-belongs_to :solution
-belongs_to :category
+has_many :choices, through: :question_choices
 
-end #end of Question class
+end
