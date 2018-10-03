@@ -23,14 +23,14 @@ end
 # counter1 = counter1 + 1
 # end
 
-Solution.create(
-
-)
-
-Question.create(
-  solution_id:
-  category_id: )
-end
+# Solution.create(
+#
+# )
+#
+# Question.create(
+#   solution_id:
+#   category_id: )
+# end
 
 
 

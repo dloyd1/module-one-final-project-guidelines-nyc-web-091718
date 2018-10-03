@@ -3,18 +3,18 @@ require 'json'
 require 'pry'
 
 
-categories2 = ["People", "Films", "Planets", "Starships", "Species"]
-count_arr = []
-counter = 0
-def api
-  #make the web request
-  categories2 = ["People", "Films", "Planets", "Starships", "Species"]
+cat_array = ["People", "Films", "Planets", "Starships", "Species"]
+xyz = "PlaceHolder"
+
+
+def cat_count
   count_arr = []
   counter = 0
+  #make the web request
   5.times do
-  api_url = "http://www.swapi.co/api/"
-  x = "#{api_url}#{categories2[counter]}"
-  response_string = RestClient.get("#{x}")
+  api_url = "http://www.swapi.co/api/people"
+  # xyz = "#{api_url}#{cat_array[c]}"
+  response_string = RestClient.get("http://www.swapi.co/api/people")
   response_hash = JSON.parse(response_string)
   count = response_hash["count"]
     # character_info = response_hash["results"].find do |c|
@@ -31,9 +31,9 @@ def api
     count_arr << count
     counter = counter + 1
     end
+count_arr
+# binding.pry
 end
-binding.pry
-# puts count
 
 # end
 
