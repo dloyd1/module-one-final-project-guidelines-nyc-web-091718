@@ -7,9 +7,9 @@ require 'pry'
 
 def run_program
   api
-  welcome
-  get_category
-  ask_question("People")
+  # welcome
+  # get_category
+  # ask_question("People")
 
 end
 

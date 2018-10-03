@@ -2,12 +2,21 @@ require 'rest-client'
 require 'json'
 require 'pry'
 
-category_size = {"People" => 1, "Films" => 2, "Planets" => 3, "Starships" => 4, "Species" => 5}
 
-def api #(character)
+categories2 = ["People", "Films", "Planets", "Starships", "Species"]
+count_arr = []
+counter = 0
+def api
   #make the web request
-  response_string = RestClient.get('http://www.swapi.co/api/people')
+  categories2 = ["People", "Films", "Planets", "Starships", "Species"]
+  count_arr = []
+  counter = 0
+  5.times do
+  api_url = "http://www.swapi.co/api/"
+  x = "#{api_url}#{categories2[counter]}"
+  response_string = RestClient.get("#{x}")
   response_hash = JSON.parse(response_string)
+  count = response_hash["count"]
     # character_info = response_hash["results"].find do |c|
     #   c["name"].downcase == character
     #   end
@@ -19,8 +28,12 @@ def api #(character)
     #   end
     # else
     #   nil
-    puts response_hash
+    count_arr << count
+    counter = counter + 1
     end
+end
+binding.pry
+# puts count
 
 # end
 

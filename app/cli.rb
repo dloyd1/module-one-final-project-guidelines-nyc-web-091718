@@ -14,16 +14,7 @@ def get_category
 end
 
 def ask_question(selection)
-  questions = {
-    "People" => [
-      "Which of the following characters is the tallest?",
-      "What is this character's homeworld?",
-    ],
-    "Films" => ["Test"],
-    "Planets" => ["Test 2"],
-    "Starships" => ["Test 3"],
-    "Species" => ["Test 4"]
-  }
+  questions = 
   10.times do |x|
     count = 1
   puts "Question number #{count}"
