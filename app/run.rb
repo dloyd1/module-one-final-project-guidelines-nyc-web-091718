@@ -6,9 +6,11 @@ require 'pry'
 # require_relative "../lib/command_line_interface.rb"
 
 def run_program
-  welcome
-  get_category
-  ask_question("People")
+  api
+  # welcome
+  # get_category
+  # ask_question("People")
+
 end
 
 # character = get_character_from_user
