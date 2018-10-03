@@ -45,6 +45,10 @@ def show_character_movies(character)
 
 end
 
+def store_in_db()
+
+end
+
 
 ## BONUS
 

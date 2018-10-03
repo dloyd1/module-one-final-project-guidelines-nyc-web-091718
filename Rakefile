@@ -11,14 +11,14 @@ namespace :db do
     Pry.start
   end
 
-  desc 'seed the database with some dummy data'
-    task :seed do
-      binding.pry
-      require_relative './db/seeds.rb'
-    end
+  # desc 'seed the database with some dummy data'
+  #   task :seed do
+  #     require_relative './db/seeds.rb'
+  #   end
 
   desc 'runs the program'
     task :start do
       run_program
     end
+
   end # end of namespace
