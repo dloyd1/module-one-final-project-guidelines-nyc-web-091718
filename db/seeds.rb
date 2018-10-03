@@ -1,28 +1,43 @@
 require_relative '../config/environment'
 require_all 'app'
+ categories = ["People", "Films", "Planets", "Starships", "Species"]
+ questions = {"People" => "Q1", "People" => "Q2",
+              "Films" => "Q3", "Films" => "Q4",
+              "Planets" => "Q5", "Planets" => "Q6",
+              "Starships" => "Q7", "Starships" => "Q8",
+              "Species" => "Q10", "Species" => "Q9"}
 
+
+5.times do
+counter = 0
 Category.create(
-  category_name: "",
-  question_bank: "",
-  category_count: "",
-  people_height: "",
-  people_homeworld: "",
-  people_films: "",
-  people_species: "",
-  people_name: "",
-  films_release_date: "",
-  films_director: "",
-  films_characters: "",
-  films_opening: "",
-  planet_climate: "",
-  planet_diameter: "",
-  starships_films: "",
-  starships_speed: "",
-  starships_pilots: "",
-  species_life: "",
-  species_homeworld: "",
-  species_language:)
+  category_name: "#{categories[counter2]}")
+counter +=1
+end
 
-Category.create(people_name: "Test")
+
+# Category.create(
+#   category_name: "Films",
+#   question_bank: ["", ""],
+#   category_count: "",
+# )
+#
+# Category.create(
+#   category_name: "Planets",
+#   question_bank: ["", ""],
+#   category_count: "",
+# )
+#
+# Category.create(
+#   category_name: "Species",
+#   question_bank: ["", ""],
+#   category_count: ["", ""],
+# )
+#
+# Category.create(
+#   category_name: "Starships",
+#   question_bank: "",
+#   category_count: "",
+# )
 
 # , question_bank: "Q2"
