@@ -23,12 +23,14 @@ def cat_count
     total_arr
 end
 
-#total_arr = cat_count
+total_arr = cat_count
 
 #--------------Randomly select two instances for each category-----------------#
 
 def rand_numbers(total_arr)
+
   num_arr = []
+  while num_arr[1] == num_arr[6]
   2.times do
     counter = 0
     5.times do
@@ -40,7 +42,9 @@ def rand_numbers(total_arr)
   end
   num_arr
 end
-#randnums = rand_numbers(total_arr)
+num_arr
+end
+randnums = rand_numbers(total_arr)
 
 #-----------------To input valid starship numbers.-------------------#
 
@@ -56,7 +60,9 @@ y = ship_arr.sample
 randnums = randnums.fill(x.to_i, 3..3)
 randnums = randnums.fill(y.to_i, 8..8)
 end
-#nums = valid_nums(randnums)
+nums = valid_nums(randnums)
+
+binding.pry
 
 
 #--------------Randomly select two instances for each category-----------------#
