@@ -94,70 +94,232 @@ end # end of method
 def qs_about()
   total_arr = cat_count
   randnums = rand_numbers(total_arr)
-  nums = valid_nums(randnums)
-  subjects = get_subjects(nums)
-  $nums = nums
+  $nums = valid_nums(randnums)
+  subjects = get_subjects($nums)
 end
 
-x = qs_about
+$xyz = qs_about
 
 #-------------------------------Selecting Wrong Choices------------------------#
 
 def wchoices
 wc_arry = []
 #Q1-------Characters-------#
+
     c_arr = (1..87).to_a
     c_arr.delete($nums[0])
     c_arr.delete($nums[5])
     c_wc = c_arr.sample(3)
     wc_arry << c_wc
+
 #Q2------Films-------------#
+
     f_arr = (1..7).to_a
     f_arr.delete($nums[1])
     f_arr.delete($nums[6])
     f_wc = f_arr.sample(3)
     wc_arry << f_wc
+
 #Q3------Planets-------------#
+
     pl_arr = (1..61).to_a
     pl_arr.delete($nums[2])
     pl_arr.delete($nums[7])
     pl_wc = pl_arr.sample(3)
     wc_arry << pl_wc
+
 #Q4------Starships-------------#
+
     st_arr = [2, 3, 5, 9, 10, 11, 12, 13, 15, 17, 21, 22,
               23, 27, 28, 29, 31, 32]
     st_arr.delete($nums[3])
     st_arr.delete($nums[8])
     st_wc = st_arr.sample(3)
     wc_arry << st_wc
+
 #Q5------Species-------------#
+
     sp_arr = (1..37).to_a
     sp_arr.delete($nums[4])
     sp_arr.delete($nums[9])
     sp_wc = sp_arr.sample(3)
     wc_arry << sp_wc
+
 #Q6------Characters-------#
+
     c_wc = c_arr.sample(3)
     wc_arry << c_wc
+
 #Q7------Films-------------#
+
     f_wc = f_arr.sample(3)
     wc_arry << f_wc
+
 #Q8------Planets-------------#
-    pl_arr = (1..61).to_a
-    pl_arr.delete($nums[2])
-    pl_arr.delete($nums[7])
+
     pl_wc = pl_arr.sample(3)
     wc_arry << pl_wc
+
 #Q9------Starships-------------#
+
     st_wc = st_arr.sample(3)
     wc_arry << st_wc
+
 #Q10-----Species-------------#
+
     sp_wc = sp_arr.sample(3)
     wc_arry << sp_wc
 
 end
 
-wca = wchoices
+$wca = wchoices
+
+#-------------------------------Selecting Solutions---------------------------#
+
+def solutions
+  url_array = ["http://www.swapi.co/api/people", "http://www.swapi.co/api/films",
+               "http://www.swapi.co/api/planets", "http://www.swapi.co/api/starships",
+               "http://www.swapi.co/api/species"]
+  $sol_arr = []
+
+#Q1-------Character Homeworld-------#
+
+  api_text = JSON.parse(RestClient.get(url_array[0] + "/#{$nums[0]}"))
+  z = api_text["homeworld"]
+  api_text2 = JSON.parse(RestClient.get(z)) #link from character to homeworld
+  z2 = api_text2["name"]
+  $sol_arr << z2
+
+#Q2-------Film First Released-------#
+  date_arr = []
+  t_arr = []
+  api_text = JSON.parse(RestClient.get(url_array[1] + "/#{$nums[1]}"))
+  n1 = api_text["release_date"]
+  t1 = api_text["title"]
+  date_arr << n1.to_f
+  t_arr << t1
+
+  api_text = JSON.parse(RestClient.get(url_array[1] + "/#{$wca[1][0]}"))
+  n2 = api_text["release_date"]
+  t2 = api_text["title"]
+  date_arr << n2.to_f
+  t_arr << t2
+
+  api_text = JSON.parse(RestClient.get(url_array[1] + "/#{$wca[1][1]}"))
+  n3 = api_text["release_date"]
+  t3 = api_text["title"]
+  date_arr << n3.to_f
+  t_arr << t3
+
+  api_text = JSON.parse(RestClient.get(url_array[1] + "/#{$wca[1][2]}"))
+  n4 = api_text["release_date"]
+  t4 = api_text["title"]
+  date_arr << n4.to_f
+  t_arr << t4
+
+  $date = date_arr
+  $titles = t_arr
+
+  $sol_arr << $titles[$date.index($date.min)] #match min date with movie title
+#Q3-------Planets = Largest--------#
+
+
+
+
+#Q4-------Species = Tallest-------#
+
+
+
+
+#Q5-------Starships = Large Crew----#
+
+
+
+
+
+#Q6-------Characters = Tallest-------#
+ht_arr = []
+nm_arr = []
+api_text = JSON.parse(RestClient.get(url_array[0] + "/#{$nums[5]}"))
+ht1 = api_text["height"]
+nm1 = api_text["name"]
+ht_arr << ht1.to_i
+nm_arr << nm1
+
+api_text = JSON.parse(RestClient.get(url_array[0] + "/#{$wca[5][0]}"))
+ht2 = api_text["height"]
+nm2 = api_text["name"]
+ht_arr << ht2.to_i
+nm_arr << nm2
+
+api_text = JSON.parse(RestClient.get(url_array[0] + "/#{$wca[5][1]}"))
+ht3 = api_text["height"]
+nm3 = api_text["name"]
+ht_arr << ht3.to_i
+nm_arr << nm3
+
+api_text = JSON.parse(RestClient.get(url_array[0] + "/#{$wca[5][2]}"))
+ht4 = api_text["height"]
+nm4 = api_text["name"]
+ht_arr << ht4.to_i
+nm_arr << nm4
+
+$height = ht_arr
+$name = nm_arr
+
+$sol_arr << $name[$height.index($height.max)] #match height with name of char
+
+#Q7-------Film = Last Released-------#
+date_arr2 = []
+t_arr2 = []
+api_text = JSON.parse(RestClient.get(url_array[1] + "/#{$nums[6]}"))
+nx1 = api_text["release_date"]
+tx1 = api_text["title"]
+date_arr2 << nx1.to_f
+t_arr2 << tx1
+
+api_text = JSON.parse(RestClient.get(url_array[1] + "/#{$wca[6][0]}"))
+nx2 = api_text["release_date"]
+tx2 = api_text["title"]
+date_arr2 << nx2.to_f
+t_arr2 << tx2
+
+api_text = JSON.parse(RestClient.get(url_array[1] + "/#{$wca[6][1]}"))
+nx3 = api_text["release_date"]
+tx3 = api_text["title"]
+date_arr2 << nx3.to_f
+t_arr2 << tx3
+
+api_text = JSON.parse(RestClient.get(url_array[1] + "/#{$wca[6][2]}"))
+nx4 = api_text["release_date"]
+tx4 = api_text["title"]
+date_arr2 << nx4.to_f
+t_arr2 << tx4
+
+$date2 = date_arr2
+$titles2 = t_arr2
+
+$sol_arr << $titles2[$date2.index($date2.max)] #match min date with movie title
+
+
+#Q8-------Planets = Biggest Pop-----#
+
+
+
+#Q9-------Starships = Largest------#
+
+
+
+
+
+#Q10-------Species = Homeworld-------#
+api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$nums[9]}"))
+zx1 = api_text["homeworld"]
+api_text2 = JSON.parse(RestClient.get(zx1)) #link from character to homeworld
+zx2 = api_text2["name"]
+$sol_arr << zx2
+
+end
 binding.pry
 
 

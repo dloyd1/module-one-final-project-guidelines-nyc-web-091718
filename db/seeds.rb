@@ -14,7 +14,7 @@ qcat_array = [["What planet does this character call home?", "Characters"],
               ["On average, which of the following species is tallest?","Species"],
               ["Of the following starships, which one requires the the most people to operate?", "Starships"],
               ["Which character is the tallest?", "Characters"],
-              ["Chronologically, which film takes places last?", "Films"],
+              ["Which film debuted in theaters last?", "Films"],
               ["Of the planets below, which one has the biggest population?", "Planets"],
               ["Which of the following Starships is the largest?", "Starships"],
               ["On what planet does this species primarily live?", "Species"]]
