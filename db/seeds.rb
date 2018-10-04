@@ -1,36 +1,62 @@
 require_relative '../config/environment.rb'
 require_relative '../app/api.rb'
 
-categories = ["People", "Films", "Planets", "Starships", "Species"]
+
+#-------------------Data Input----------------#
+categories = ["Characters", "Films", "Planets", "Starships", "Species"]
 
 category_objects = [87, 7, 61, 37, 37]
 
-qcat_array = [["1", "People"], ["2", "People"],
-             ["3", "Films"], ["4", "Films"],
-             ["5", "Planets"], ["6", "Planets"],
-             ["7", "Starships"], ["8", "Starships"],
-             ["9", "Species"], ["10","Species" ]]
+qcat_array = [["What planet does this character call home?", "Characters"],
+              ["Which film was released first?", "Films"],
+              ["Of the below planets, which is the largest?", "Planets"],
+              ["On average, which of the following species is tallest?","Species"]]
+              ["Which character is the tallest?", "Characters"],
+              ["Of the following Starships, which one requires the the most people to operate?", "Starships"],
+              ["Which character is the tallest?", "Characters"],
+              ["Chronologically, which film takes places last?", "Films"],
+              ["Of the planets below, which one has the largest population?", "Planets"],
+              ["Which of the following Starships is the largest?", "Starships"],
+              ["What planet does this species call home?", "Species"],
+              ["Which of the following species is tallest?","Species"]]
 
-questions_hash = {"People" => ["Q1","Q6"],
+questions_hash = {
+                  "Characters" => ["Q1","Q6"],
                   "Films" =>  ["Q2", "Q7"],
                   "Planets" => ["Q3","Q8"],
                   "Starships" => ["Q4","Q9"],
                   "Species" => ["Q5","Q10"]}
 
-# count_arr = cat_count
-# counter = 0
-# counter1 = 0
-# 2.times do
+#-----------------Creating Questions-----------------#
 
 
+def create_questions(qcat_array)
 counter = 0
 10.times do
 Question.create(
-  question_text: question_hash[counter][0],
-  category: question_hash[counter][1]
+  question_text: qcat_array[counter][0],
+  category: qcat_array[counter][1]
 )
 counter = counter + 1
 end
+end
+
+create_questions(qcat_array)
+
+#--------------------Creating Choices-------------------#
+
+
+
+
+
+
+
+
+
+#-------------------Creating Qcs--------------------------#
+
+
+
 
 
 #
