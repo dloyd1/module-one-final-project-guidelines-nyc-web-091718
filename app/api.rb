@@ -47,7 +47,6 @@ randnums = rand_numbers(total_arr)
 
 def get_subjects(randnums)
     subj_arr = []
-    2.times do
     url_array = ["http://www.swapi.co/api/people", "http://www.swapi.co/api/films",
                  "http://www.swapi.co/api/planets", "http://www.swapi.co/api/starships",
                  "http://www.swapi.co/api/species"]
@@ -61,8 +60,6 @@ def get_subjects(randnums)
       counter = counter + 1
     end
     subj_arr
-  end
-  subj_arr
 end
 
 subjects = get_subjects(randnums)
