@@ -45,6 +45,8 @@ create_questions(qcat_array)
 
 #--------------------Creating Choices-------------------#
 
+
+x = test
 # x = test
 # binding.pry
 # def create_choices(q_subs)
@@ -53,7 +55,7 @@ create_questions(qcat_array)
 # # binding.pry
 #
 # end
-# # binding.pry
+binding.pry
 
 
 

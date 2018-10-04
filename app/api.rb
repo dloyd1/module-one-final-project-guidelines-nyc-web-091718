@@ -3,6 +3,7 @@ require 'json'
 require 'pry'
 
 #--------------Count the number of instances in each category------------------#
+
 def cat_count
   total_arr = []
   counter = 0
@@ -22,12 +23,9 @@ def cat_count
     total_arr
 end
 
-total_arr = cat_count
-
-# total_arr = cat_count.fill(32, 3..3)
+#total_arr = cat_count
 
 #--------------Randomly select two instances for each category-----------------#
-
 
 def rand_numbers(total_arr)
   num_arr = []
@@ -42,8 +40,10 @@ def rand_numbers(total_arr)
   end
   num_arr
 end
-randnums = rand_numbers(total_arr)
+#randnums = rand_numbers(total_arr)
+
 #-----------------To input valid starship numbers.-------------------#
+
 def valid_nums(randnums)
 # exclusions = [1, 4, 6, 7, 8, 14, 16, 18, 19, 20, 24, 25, 26, 30]
 ship_arr = [2, 3, 5, 9, 10, 11, 12, 13, 15, 17, 21, 22,
@@ -56,7 +56,9 @@ y = ship_arr.sample
 randnums = randnums.fill(x.to_i, 3..3)
 randnums = randnums.fill(y.to_i, 8..8)
 end
-nums = valid_nums(randnums)
+#nums = valid_nums(randnums)
+
+
 #--------------Randomly select two instances for each category-----------------#
 
 def get_subjects(nums)
@@ -66,69 +68,57 @@ def get_subjects(nums)
                  "http://www.swapi.co/api/species"]
     api_array = ["name", "title", "name", "name", "name"]
     counter = 0
-    5.times do
-      url = url_array[counter] + "/#{nums[counter]}"
+    counter2 = 0
+    10.times do
+      if counter == 5
+        counter = 0
+      end
+      url = url_array[counter] + "/#{nums[counter2]}"
       api_text = JSON.parse(RestClient.get(url.to_s))
       x = api_text["#{api_array[counter]}"]
       subj_arr << x
       counter = counter + 1
+      counter2 = counter2 + 1
       end # end of times loop
     subj_arr
+
 end # end of method
 
-subjects = get_subjects(nums)
+#subjects = get_subjects(nums)
+
+
+
+#-----------------------------------Agregating Solutions---------------------------#
+
+def solutions()
+  total_arr = cat_count
+  randnums = rand_numbers(total_arr)
+  nums = valid_nums(randnums)
+  subjects = get_subjects(nums)
+
+  # people_arr = (1..87).to_a
+  # people_arr << nums[0]
+  # people_arr << nums[5]
+  # p_arr = people_arr.uniq
+  # binding.pry
+end
+x = solutions
 binding.pry
-#--------------INPUT DESCRIPTION HERE----------------#
+  # pepole_arr = people_arr.delete_at(index(nums[0]))
+  # people_arr = people_arr.delete_at(index(nums[5]))
 
-# def test
-#   cat_count
-#   total_arr = cat_count
-#   rand_numbers(total_arr)
-#   randnums = rand_numbers(total_arr)
-#   get_subjects(randnums)
-#   subjects = get_subjects(randnums)
+
+  # people_arr = (1..87).to_a.index(nums[5])
+  # films_arr = (1..7).to_a.delete(nums[1]).delete(nums[6])
+  # planets_arr = (1..61).to_a.delete(nums[2]).delete(nums[7])
+  # starships arr = [2, 3, 5, 9, 10, 11, 12, 13, 15, 17, 21, 22,
+  #                  23, 27, 28, 29, 31, 32]to_a.delete(nums[3]).delete(nums[8])
+  # species_arr = (1..37).to_a.delete(nums[4]).delete(nums[9])
+
 # end
-#
-# x = test
-# binding.pry
+
+#-----------------------------------Agregating Choices------------------------#
 
 
-# def films
-#   date_arr = []
-#   counter = 0
-#   7.times do
-#   response_string = RestClient.get("http://www.swapi.co/api/films")
-#   response_hash = JSON.parse(response_string)
-#   date = response_hash["results"][counter]["release_date"]
-#   title = response_hash["results"][counter]["title"]
-#   film data = {} << {title  => date}
-#   counter = counter + 1
-#   end
-#   film_data
-# end
-#
-# date_arr = films
 
-
-# binding.pry
-#----------------------------------------------
-
-# else
-#   url = url_array[counter - 5] + "/#{randnums[counter]}"
-#   api_text = JSON.parse(RestClient.get(url))
-#   x = api_text["#{api_array[counter - 5]}"]
-#   subj_arr << x
-#   counter = counter + 1
-#   end
-
-#---------------------------------
-# counter2 = 5
-# 5.times do
-#   url = url_array[counter] + "/#{randnums[counter2]}"
-#   api_text = JSON.parse(RestClient.get(url))
-#   x = api_text["#{api_array[counter]}"]
-#   subj_arr << x
-#   counter = counter + 1
-#   counter2 = counter2 + 1
-# end
-# subj_arr
+#def choices(total_arr, rand_nums, nums, subjects)
