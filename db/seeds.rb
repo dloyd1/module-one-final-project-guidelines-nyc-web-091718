@@ -2,6 +2,7 @@ require_relative '../config/environment.rb'
 require_relative '../app/api.rb'
 
 
+
 #-------------------Data Input----------------#
 categories = ["Characters", "Films", "Planets", "Starships", "Species"]
 
@@ -10,7 +11,7 @@ category_objects = [87, 7, 61, 37, 37]
 qcat_array = [["What planet does this character call home?", "Characters"],
               ["Which film debuted in theaters first?", "Films"],
               ["Of the below planets, which is the largest?", "Planets"],
-              ["On average, which of the following species is tallest?","Species"]
+              ["On average, which of the following species is tallest?","Species"],
               ["Of the following starships, which one requires the the most people to operate?", "Starships"],
               ["Which character is the tallest?", "Characters"],
               ["Chronologically, which film takes places last?", "Films"],
@@ -25,7 +26,7 @@ questions_hash = {
                   "Starships" => ["Q4","Q9"],
                   "Species" => ["Q5","Q10"]}
 
-q_subs = q_subjects
+# q_subs = q_subjects
 #-----------------Creating Questions-----------------#
 
 
@@ -44,12 +45,15 @@ create_questions(qcat_array)
 
 #--------------------Creating Choices-------------------#
 
-def create_choices(q_subs)
-
-
-
-end
-binding.pry
+# x = test
+# binding.pry
+# def create_choices(q_subs)
+#
+# x = tests
+# # binding.pry
+#
+# end
+# # binding.pry
 
 
 

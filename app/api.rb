@@ -22,7 +22,8 @@ def cat_count
     total_arr
 end
 
-total_arr = cat_count
+total_arr = cat_count.fill(32, 3..3)
+binding.pry
 
 #--------------Randomly select two instances for each category-----------------#
 
@@ -43,6 +44,7 @@ end
 
 randnums = rand_numbers(total_arr)
 
+
 #--------------Randomly select two instances for each category-----------------#
 
 def get_subjects(randnums)
@@ -52,38 +54,31 @@ def get_subjects(randnums)
                  "http://www.swapi.co/api/species"]
     api_array = ["name", "title", "name", "name", "name"]
     counter = 0
-    10.times do
-      # if counter < 5
+    5.times do
       url = url_array[counter] + "/#{randnums[counter]}"
-      api_text = JSON.parse(RestClient.get(url))
+      api_text = JSON.parse(RestClient.get(url.to_s))
       x = api_text["#{api_array[counter]}"]
       subj_arr << x
       counter = counter + 1
-    # else
-    #   url = url_array[counter - 5] + "/#{randnums[counter]}"
-    #   api_text = JSON.parse(RestClient.get(url))
-    #   x = api_text["#{api_array[counter - 5]}"]
-    #   subj_arr << x
-    #   counter = counter + 1
-    #   end
-  end # end of times loop
+      end # end of times loop
     subj_arr
-    binding.pry
-    # counter2 = 5
-    # 5.times do
-    #   url = url_array[counter] + "/#{randnums[counter2]}"
-    #   api_text = JSON.parse(RestClient.get(url))
-    #   x = api_text["#{api_array[counter]}"]
-    #   subj_arr << x
-    #   counter = counter + 1
-    #   counter2 = counter2 + 1
-    # end
-    # subj_arr
 end # end of method
 
 subjects = get_subjects(randnums)
-binding.pry
+
 #--------------INPUT DESCRIPTION HERE----------------#
+
+def test
+  cat_count
+  total_arr = cat_count
+  rand_numbers(total_arr)
+  randnums = rand_numbers(total_arr)
+  get_subjects(randnums)
+  subjects = get_subjects(randnums)
+end
+
+x = test
+
 
 
 
@@ -105,3 +100,24 @@ binding.pry
 
 
 # binding.pry
+#----------------------------------------------
+
+# else
+#   url = url_array[counter - 5] + "/#{randnums[counter]}"
+#   api_text = JSON.parse(RestClient.get(url))
+#   x = api_text["#{api_array[counter - 5]}"]
+#   subj_arr << x
+#   counter = counter + 1
+#   end
+
+#---------------------------------
+# counter2 = 5
+# 5.times do
+#   url = url_array[counter] + "/#{randnums[counter2]}"
+#   api_text = JSON.parse(RestClient.get(url))
+#   x = api_text["#{api_array[counter]}"]
+#   subj_arr << x
+#   counter = counter + 1
+#   counter2 = counter2 + 1
+# end
+# subj_arr
