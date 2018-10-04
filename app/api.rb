@@ -52,15 +52,34 @@ def get_subjects(randnums)
                  "http://www.swapi.co/api/species"]
     api_array = ["name", "title", "name", "name", "name"]
     counter = 0
-    5.times do
+    10.times do
+      # if counter < 5
       url = url_array[counter] + "/#{randnums[counter]}"
       api_text = JSON.parse(RestClient.get(url))
       x = api_text["#{api_array[counter]}"]
       subj_arr << x
       counter = counter + 1
-    end
+    # else
+    #   url = url_array[counter - 5] + "/#{randnums[counter]}"
+    #   api_text = JSON.parse(RestClient.get(url))
+    #   x = api_text["#{api_array[counter - 5]}"]
+    #   subj_arr << x
+    #   counter = counter + 1
+    #   end
+  end # end of times loop
     subj_arr
-end
+    binding.pry
+    # counter2 = 5
+    # 5.times do
+    #   url = url_array[counter] + "/#{randnums[counter2]}"
+    #   api_text = JSON.parse(RestClient.get(url))
+    #   x = api_text["#{api_array[counter]}"]
+    #   subj_arr << x
+    #   counter = counter + 1
+    #   counter2 = counter2 + 1
+    # end
+    # subj_arr
+end # end of method
 
 subjects = get_subjects(randnums)
 binding.pry
