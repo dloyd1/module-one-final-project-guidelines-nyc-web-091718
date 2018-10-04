@@ -22,7 +22,9 @@ def cat_count
     total_arr
 end
 
-total_arr = cat_count.fill(32, 3..3)
+total_arr = cat_count
+
+# total_arr = cat_count.fill(32, 3..3)
 
 #--------------Randomly select two instances for each category-----------------#
 
@@ -40,12 +42,24 @@ def rand_numbers(total_arr)
   end
   num_arr
 end
-
 randnums = rand_numbers(total_arr)
+#-----------------To input valid starship numbers.-------------------#
+def valid_nums(randnums)
+# exclusions = [1, 4, 6, 7, 8, 14, 16, 18, 19, 20, 24, 25, 26, 30]
+ship_arr = [2, 3, 5, 9, 10, 11, 12, 13, 15, 17, 21, 22,
+            23, 27, 28, 29, 31, 32]
 
+x = ship_arr.sample
+ship_arr.delete(x)
+y = ship_arr.sample
+
+randnums = randnums.fill(x.to_i, 3..3)
+randnums = randnums.fill(y.to_i, 8..8)
+end
+nums = valid_nums(randnums)
 #--------------Randomly select two instances for each category-----------------#
 
-def get_subjects(randnums)
+def get_subjects(nums)
     subj_arr = []
     url_array = ["http://www.swapi.co/api/people", "http://www.swapi.co/api/films",
                  "http://www.swapi.co/api/planets", "http://www.swapi.co/api/starships",
@@ -53,17 +67,16 @@ def get_subjects(randnums)
     api_array = ["name", "title", "name", "name", "name"]
     counter = 0
     5.times do
-      url = url_array[counter] + "/#{randnums[counter]}"
+      url = url_array[counter] + "/#{nums[counter]}"
       api_text = JSON.parse(RestClient.get(url.to_s))
       x = api_text["#{api_array[counter]}"]
       subj_arr << x
       counter = counter + 1
       end # end of times loop
     subj_arr
-    binding.pry
 end # end of method
 
-subjects = get_subjects(randnums)
+subjects = get_subjects(nums)
 binding.pry
 #--------------INPUT DESCRIPTION HERE----------------#
 
