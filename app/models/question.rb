@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
 
-has_many :choices, through: :question_choices
+has_many :choices, through: :qcs
 
 end

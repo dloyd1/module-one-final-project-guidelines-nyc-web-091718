@@ -1,4 +1,4 @@
-class QuestionChoice < ActiveRecord::Base
+class QC < ActiveRecord::Base
 
 belongs_to :question
 belongs_to :choice
