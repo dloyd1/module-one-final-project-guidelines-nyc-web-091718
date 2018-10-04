@@ -8,17 +8,15 @@ categories = ["Characters", "Films", "Planets", "Starships", "Species"]
 category_objects = [87, 7, 61, 37, 37]
 
 qcat_array = [["What planet does this character call home?", "Characters"],
-              ["Which film was released first?", "Films"],
+              ["Which film debuted in theaters first?", "Films"],
               ["Of the below planets, which is the largest?", "Planets"],
-              ["On average, which of the following species is tallest?","Species"]]
-              ["Which character is the tallest?", "Characters"],
-              ["Of the following Starships, which one requires the the most people to operate?", "Starships"],
+              ["On average, which of the following species is tallest?","Species"]
+              ["Of the following starships, which one requires the the most people to operate?", "Starships"],
               ["Which character is the tallest?", "Characters"],
               ["Chronologically, which film takes places last?", "Films"],
-              ["Of the planets below, which one has the largest population?", "Planets"],
+              ["Of the planets below, which one has the biggest population?", "Planets"],
               ["Which of the following Starships is the largest?", "Starships"],
-              ["What planet does this species call home?", "Species"],
-              ["Which of the following species is tallest?","Species"]]
+              ["On what planet does this species primarily live?", "Species"]]
 
 questions_hash = {
                   "Characters" => ["Q1","Q6"],
@@ -27,6 +25,7 @@ questions_hash = {
                   "Starships" => ["Q4","Q9"],
                   "Species" => ["Q5","Q10"]}
 
+q_subs = q_subjects
 #-----------------Creating Questions-----------------#
 
 
@@ -45,10 +44,11 @@ create_questions(qcat_array)
 
 #--------------------Creating Choices-------------------#
 
+def create_choices(q_subs)
+q_subs 
 
-
-
-
+end
+binding.pry
 
 
 
