@@ -23,7 +23,6 @@ def cat_count
 end
 
 total_arr = cat_count.fill(32, 3..3)
-binding.pry
 
 #--------------Randomly select two instances for each category-----------------#
 
@@ -44,7 +43,6 @@ end
 
 randnums = rand_numbers(total_arr)
 
-
 #--------------Randomly select two instances for each category-----------------#
 
 def get_subjects(randnums)
@@ -62,24 +60,24 @@ def get_subjects(randnums)
       counter = counter + 1
       end # end of times loop
     subj_arr
+    binding.pry
 end # end of method
 
 subjects = get_subjects(randnums)
-
+binding.pry
 #--------------INPUT DESCRIPTION HERE----------------#
 
-def test
-  cat_count
-  total_arr = cat_count
-  rand_numbers(total_arr)
-  randnums = rand_numbers(total_arr)
-  get_subjects(randnums)
-  subjects = get_subjects(randnums)
-end
-
-x = test
-
-
+# def test
+#   cat_count
+#   total_arr = cat_count
+#   rand_numbers(total_arr)
+#   randnums = rand_numbers(total_arr)
+#   get_subjects(randnums)
+#   subjects = get_subjects(randnums)
+# end
+#
+# x = test
+# binding.pry
 
 
 # def films
