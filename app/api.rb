@@ -191,6 +191,7 @@ def solutions
   $sol_arr << z2
 
 #Q2-------Film First Released-------#
+
   date_arr = []
   t_arr = []
   api_text = JSON.parse(RestClient.get(url_array[1] + "/#{$nums[1]}"))
@@ -221,10 +222,39 @@ def solutions
   $titles = t_arr
 
   $sol_arr << $titles[$date.index($date.min)] #match min date with movie title
+
 #Q3-------Planets = Largest--------#
 
-
-
+# sz_arr = []
+# nam_arr = []
+# api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$nums[2]}"))
+# sz1 = api_text["diameter"]
+# nam1 = api_text["name"]
+# sz_arr << sz1.to_i
+# nam_arr << nam1
+#
+# api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$wca[2][0]}"))
+# sz2 = api_text["diameter"]
+# nam2 = api_text["name"]
+# sz_arr << sz2.to_i
+# nam_arr << nam2
+#
+# api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$wca[2][1]}"))
+# sz3 = api_text["diameter"]
+# nam3 = api_text["name"]
+# sz_arr << sz3.to_i
+# nam_arr << nam3
+#
+# api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$wca[2][2]}"))
+# sz4 = api_text["diameter"]
+# nam4 = api_text["name"]
+# sz_arr << sz4.to_i
+# nam_arr << nam4
+#
+# $size = sz_arr
+# $name1 = nam_arr
+#
+# $sol_arr << $name1[$size.index($size.max)] #match size with name of planet
 
 #Q4-------Species = Tallest-------#
 
@@ -238,6 +268,7 @@ def solutions
 
 
 #Q6-------Characters = Tallest-------#
+
 ht_arr = []
 nm_arr = []
 api_text = JSON.parse(RestClient.get(url_array[0] + "/#{$nums[5]}"))
@@ -270,6 +301,7 @@ $name = nm_arr
 $sol_arr << $name[$height.index($height.max)] #match height with name of char
 
 #Q7-------Film = Last Released-------#
+
 date_arr2 = []
 t_arr2 = []
 api_text = JSON.parse(RestClient.get(url_array[1] + "/#{$nums[6]}"))
@@ -301,7 +333,6 @@ $titles2 = t_arr2
 
 $sol_arr << $titles2[$date2.index($date2.max)] #match min date with movie title
 
-
 #Q8-------Planets = Biggest Pop-----#
 
 
@@ -313,6 +344,7 @@ $sol_arr << $titles2[$date2.index($date2.max)] #match min date with movie title
 
 
 #Q10-------Species = Homeworld-------#
+
 api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$nums[9]}"))
 zx1 = api_text["homeworld"]
 api_text2 = JSON.parse(RestClient.get(zx1)) #link from character to homeworld
@@ -321,20 +353,3 @@ $sol_arr << zx2
 
 end
 binding.pry
-
-
-
-
-# pepole_arr = people_arr.delete_at(index(nums[0]))
-# people_arr = people_arr.delete_at(index(nums[5]))
-
-
-# people_arr = (1..87).to_a.index(nums[5])
-# films_arr = (1..7).to_a.delete(nums[1]).delete(nums[6])
-# planets_arr = (1..61).to_a.delete(nums[2]).delete(nums[7])
-# starships arr = [2, 3, 5, 9, 10, 11, 12, 13, 15, 17, 21, 22,
-#                  23, 27, 28, 29, 31, 32]to_a.delete(nums[3]).delete(nums[8])
-# species_arr = (1..37).to_a.delete(nums[4]).delete(nums[9])
-
-
-#def choices(total_arr, rand_nums, nums, subjects)
