@@ -42,43 +42,36 @@ create_questions(qcat_array)
 
 #--------------------Creating Choices-------------------#
 def create_choices
-
+#----------Question 1------------#
     Choice.create(
-      answer: $sol_arr[0]
-      choice1: $titles[0]
-      choice2: $titles[1]
-      choice3: $titles[2]
-      end
-
+      answer: $sol_arr[1],
+      choice1: $titles[0],
+      choice2: $titles[1],
+      choice3: $titles[2])
+#----------Question 2------------#
     Choice.create(
-      answer: $sol_arr[1])
-      choice1: $titles[0]
-      choice2: $titles[1]
-      choice3: $titles[2]
-      end
-
+      answer: $sol_arr[2],
+      choice1: $name1[0],
+      choice2: $name1[1],
+      choice3: $name1[2])
+#----------Question 3------------#
     Choice.create(
-      answer: $sol_arr[2])
-      choice1: $name1[0]
-      choice2: $name1[1]
-      choice3: $name1[2]
-      end
-
+      answer: $sol_arr[4],
+      choice1: $ship[0],
+      choice2: $ship[2],
+      choice3: $ship[3])
+#----------Question 4------------#
     Choice.create(
-      answer: $sol_arr[3])
-      choice1: $name3[0]
-      choice2: $name3[1]
-      choice3: $name3[2]
-      end
-
+      answer: $sol_arr[3],
+      choice1: $name3[1],
+      choice2: $name3[2],
+      choice3: $name3[3])
+#----------Question 5------------#
     Choice.create(
-      answer: $sol_arr[4])
-      choice1: $ship[0]
-      choice2: $ship[1]
-      choice3: $ship[2]
-      end
-
-
+      answer: $sol_arr[8],
+      choice1: $name2[1],
+      choice2: $name2[2],
+      choice3: $name2[3])
 
 end
 create_choices
