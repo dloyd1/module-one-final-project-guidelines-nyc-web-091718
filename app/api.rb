@@ -220,8 +220,12 @@ def solutions
 
   $date = film_date_arr
   $titles = t_arr
+  $choices2 = t_arr
+  # title_1 = $titles[$date.index($date.min)]
 
   $sol_arr << $titles[$date.index($date.min)] #match min date with movie title
+  $choices2.delete($titles[$date.index($date.min)])
+  # $q2cs = $titles.select {|x| x != title_1}
 
 #Q3-------Planets = Largest--------#
 
@@ -287,15 +291,40 @@ n_arr << n4
 $height2 = h_arr
 $name3 = n_arr
 
-$sol_arr << $name3[$height2.index($height2.min)] #match height with name of char
-
-
+$sol_arr << $name3[$height2.index($height2.min)] #match height with name of species
 
 #Q5-------Starships = Large Crew----#
 
+cw_arr = []
+nm5_arr = []
+api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$nums[4]}"))
+cw1 = api_text["crew"]
+nm1 = api_text["name"]
+cw_arr << cw1.to_i
+nm5_arr << nm1
 
+api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$wca[4][0]}"))
+cw2 = api_text["crew"]
+nm2 = api_text["name"]
+cw_arr << cw2.to_i
+nm5_arr << nm2
 
+api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$wca[4][1]}"))
+cw3 = api_text["crew"]
+nm3 = api_text["name"]
+cw_arr << cw3.to_i
+nm5_arr << nm3
 
+api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$wca[4][2]}"))
+cw4 = api_text["crew"]
+nm4 = api_text["name"]
+cw_arr << cw4.to_i
+nm5_arr << nm4
+
+$crew = cw_arr
+$ship = nm5_arr
+
+$sol_arr << $ship[$crew.index($crew.max)] #match crew size with ship name
 
 #Q6-------Characters = Tallest-------#
 
@@ -395,21 +424,44 @@ $name2 = nam_arr
 
 $sol_arr << $name2[$pop_size.index($pop_size.max)] #match size with name of planet
 
-
-
 #Q9-------Starships = Largest------#
+cc_arr = []
+nm6_arr = []
+api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$nums[4]}"))
+cc1 = api_text["cargo_capacity"]
+nm_1 = api_text["name"]
+cc_arr << cc1.to_i
+nm6_arr << nm_1
 
+api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$wca[4][0]}"))
+cc2 = api_text["cargo_capacity"]
+nm_2 = api_text["name"]
+cc_arr << cc2.to_i
+nm6_arr << nm_2
 
+api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$wca[4][1]}"))
+cc3 = api_text["cargo_capacity"]
+nm_3 = api_text["name"]
+cc_arr << cc3.to_i
+nm6_arr << nm_3
 
+api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$wca[4][2]}"))
+cc4 = api_text["cargo_capacity"]
+nm_4 = api_text["name"]
+cc_arr << cc4.to_i
+nm6_arr << nm_4
 
+$cargo = cc_arr
+$bigship = nm5_arr
+
+$sol_arr << $bigship[$cargo.index($cargo.max)] #match crew size with ship name
 
 #Q10-------Species = Homeworld-------#
 
 api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$nums[9]}"))
-zx1 = api_text["homeworld"]
-api_text2 = JSON.parse(RestClient.get(zx1)) #link from character to homeworld
-zx2 = api_text2["name"]
-$sol_arr << zx2
+hw1 = api_text["homeworld"]
+api_text2 = JSON.parse(RestClient.get(hw1)) #link from species to homeworld
+snam = api_text2["name"]
+$sol_arr << snam
 
 end
-binding.pry

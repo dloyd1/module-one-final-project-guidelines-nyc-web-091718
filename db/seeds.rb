@@ -1,8 +1,6 @@
 require_relative '../config/environment.rb'
 require_relative '../app/api.rb'
 
-
-
 #-------------------Data Input----------------#
 categories = ["Characters", "Films", "Planets", "Starships", "Species"]
 
@@ -40,23 +38,18 @@ Question.create(
 counter = counter + 1
 end
 end
-
 create_questions(qcat_array)
 
 #--------------------Creating Choices-------------------#
-
-
-x = test
-# x = test
-# binding.pry
-# def create_choices(q_subs)
-#
-# x = tests
-# # binding.pry
-#
-# end
-binding.pry
-
+solutions
+def create_choices
+  Choice.create(
+    choice1: $choices2[0],
+    choice2: $choices2[1],
+    choice3: $choices2[2],
+    answer: $sol_arr[1])
+end
+create_choices
 
 
 
