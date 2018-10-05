@@ -11,7 +11,7 @@ category_objects = [87, 7, 61, 37, 37]
 qcat_array = [["What planet does this character call home?", "Characters"],
               ["Which film debuted in theaters first?", "Films"],
               ["Of the below planets, which is the largest?", "Planets"],
-              ["On average, which of the following species is tallest?","Species"],
+              ["On average, which of the following species is shortest?","Species"],
               ["Of the following starships, which one requires the the most people to operate?", "Starships"],
               ["Which character is the tallest?", "Characters"],
               ["Which film debuted in theaters last?", "Films"],

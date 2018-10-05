@@ -185,79 +185,109 @@ def solutions
 #Q1-------Character Homeworld-------#
 
   api_text = JSON.parse(RestClient.get(url_array[0] + "/#{$nums[0]}"))
-  z = api_text["homeworld"]
-  api_text2 = JSON.parse(RestClient.get(z)) #link from character to homeworld
-  z2 = api_text2["name"]
-  $sol_arr << z2
+  hw = api_text["homeworld"]
+  api_text2 = JSON.parse(RestClient.get(hw)) #link from character to homeworld
+  name = api_text2["name"]
+  $sol_arr << name
 
 #Q2-------Film First Released-------#
 
-  date_arr = []
+  film_date_arr = []
   t_arr = []
   api_text = JSON.parse(RestClient.get(url_array[1] + "/#{$nums[1]}"))
-  n1 = api_text["release_date"]
+  r1 = api_text["release_date"]
   t1 = api_text["title"]
-  date_arr << n1.to_f
+  film_date_arr << r1.to_f
   t_arr << t1
 
   api_text = JSON.parse(RestClient.get(url_array[1] + "/#{$wca[1][0]}"))
-  n2 = api_text["release_date"]
+  r2 = api_text["release_date"]
   t2 = api_text["title"]
-  date_arr << n2.to_f
+  film_date_arr << r2.to_f
   t_arr << t2
 
   api_text = JSON.parse(RestClient.get(url_array[1] + "/#{$wca[1][1]}"))
-  n3 = api_text["release_date"]
+  r3 = api_text["release_date"]
   t3 = api_text["title"]
-  date_arr << n3.to_f
+  film_date_arr << r3.to_f
   t_arr << t3
 
   api_text = JSON.parse(RestClient.get(url_array[1] + "/#{$wca[1][2]}"))
-  n4 = api_text["release_date"]
+  r4 = api_text["release_date"]
   t4 = api_text["title"]
-  date_arr << n4.to_f
+  film_date_arr << r4.to_f
   t_arr << t4
 
-  $date = date_arr
+  $date = film_date_arr
   $titles = t_arr
 
   $sol_arr << $titles[$date.index($date.min)] #match min date with movie title
 
 #Q3-------Planets = Largest--------#
 
-# sz_arr = []
-# nam_arr = []
-# api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$nums[2]}"))
-# sz1 = api_text["diameter"]
-# nam1 = api_text["name"]
-# sz_arr << sz1.to_i
-# nam_arr << nam1
-#
-# api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$wca[2][0]}"))
-# sz2 = api_text["diameter"]
-# nam2 = api_text["name"]
-# sz_arr << sz2.to_i
-# nam_arr << nam2
-#
-# api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$wca[2][1]}"))
-# sz3 = api_text["diameter"]
-# nam3 = api_text["name"]
-# sz_arr << sz3.to_i
-# nam_arr << nam3
-#
-# api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$wca[2][2]}"))
-# sz4 = api_text["diameter"]
-# nam4 = api_text["name"]
-# sz_arr << sz4.to_i
-# nam_arr << nam4
-#
-# $size = sz_arr
-# $name1 = nam_arr
-#
-# $sol_arr << $name1[$size.index($size.max)] #match size with name of planet
+sz_arr = []
+nam_arr = []
+api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$nums[2]}"))
+sz1 = api_text["diameter"]
+nam1 = api_text["name"]
+sz_arr << sz1.to_i
+nam_arr << nam1
 
-#Q4-------Species = Tallest-------#
+api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$wca[2][0]}"))
+sz2 = api_text["diameter"]
+nam2 = api_text["name"]
+sz_arr << sz2.to_i
+nam_arr << nam2
 
+api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$wca[2][1]}"))
+sz3 = api_text["diameter"]
+nam3 = api_text["name"]
+sz_arr << sz3.to_i
+nam_arr << nam3
+
+api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$wca[2][2]}"))
+sz4 = api_text["diameter"]
+nam4 = api_text["name"]
+sz_arr << sz4.to_i
+nam_arr << nam4
+
+$size = sz_arr
+$name1 = nam_arr
+
+$sol_arr << $name1[$size.index($size.max)] #match size with name of planet
+
+#Q4-------Species = Shortest-------#
+
+h_arr = []
+n_arr = []
+api_text = JSON.parse(RestClient.get(url_array[3] + "/#{$nums[3]}"))
+h1 = api_text["height"]
+n1 = api_text["name"]
+h_arr << h1.to_i
+n_arr << n1
+
+api_text = JSON.parse(RestClient.get(url_array[3] + "/#{$wca[3][0]}"))
+h2 = api_text["height"]
+n2 = api_text["name"]
+h_arr << h2.to_i
+n_arr << n2
+
+api_text = JSON.parse(RestClient.get(url_array[3] + "/#{$wca[3][1]}"))
+h3 = api_text["height"]
+n3 = api_text["name"]
+h_arr << h3.to_i
+n_arr << n3
+
+api_text = JSON.parse(RestClient.get(url_array[3] + "/#{$wca[3][2]}"))
+h4 = api_text["height"]
+n4 = api_text["name"]
+h_arr << h4.to_i
+n_arr << n4
+
+$height2 = h_arr
+$name3 = n_arr
+
+$sol_arr << $name3[$height2.index($height2.min)] #match height with name of char
 
 
 
@@ -334,6 +364,36 @@ $titles2 = t_arr2
 $sol_arr << $titles2[$date2.index($date2.max)] #match min date with movie title
 
 #Q8-------Planets = Biggest Pop-----#
+pop_arr = []
+nam2_arr = []
+api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$nums[7]}"))
+sz1 = api_text["population"]
+nam1 = api_text["name"]
+pop_arr << sz1.to_i
+nam2_arr << nam1
+
+api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$wca[7][0]}"))
+sz2 = api_text["population"]
+nam2 = api_text["name"]
+pop_arr << sz2.to_i
+nam2_arr << nam2
+
+api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$wca[7][1]}"))
+sz3 = api_text["population"]
+nam3 = api_text["name"]
+pop_arr << sz3.to_i
+nam2_arr << nam3
+
+api_text = JSON.parse(RestClient.get(url_array[2] + "/#{$wca[7][2]}"))
+sz4 = api_text["population"]
+nam4 = api_text["name"]
+pop_arr << sz4.to_i
+nam2_arr << nam4
+
+$pop_size = sz_arr
+$name2 = nam_arr
+
+$sol_arr << $name2[$pop_size.index($pop_size.max)] #match size with name of planet
 
 
 
