@@ -427,25 +427,25 @@ $sol_arr << $name2[$pop_size.index($pop_size.max)] #match size with name of plan
 #Q9-------Starships = Largest------#
 cc_arr = []
 nm6_arr = []
-api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$nums[4]}"))
+api_text = JSON.parse(RestClient.get(url_array[3] + "/#{$nums[8]}"))
 cc1 = api_text["cargo_capacity"]
 nm_1 = api_text["name"]
 cc_arr << cc1.to_i
 nm6_arr << nm_1
 
-api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$wca[4][0]}"))
+api_text = JSON.parse(RestClient.get(url_array[3] + "/#{$wca[8][0]}"))
 cc2 = api_text["cargo_capacity"]
 nm_2 = api_text["name"]
 cc_arr << cc2.to_i
 nm6_arr << nm_2
 
-api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$wca[4][1]}"))
+api_text = JSON.parse(RestClient.get(url_array[3] + "/#{$wca[8][1]}"))
 cc3 = api_text["cargo_capacity"]
 nm_3 = api_text["name"]
 cc_arr << cc3.to_i
 nm6_arr << nm_3
 
-api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$wca[4][2]}"))
+api_text = JSON.parse(RestClient.get(url_array[3] + "/#{$wca[8][2]}"))
 cc4 = api_text["cargo_capacity"]
 nm_4 = api_text["name"]
 cc_arr << cc4.to_i

@@ -1,12 +1,12 @@
 require_relative '../config/environment.rb'
 require_relative '../app/api.rb'
-
+solutions
 #-------------------Data Input----------------#
 categories = ["Characters", "Films", "Planets", "Starships", "Species"]
 
 category_objects = [87, 7, 61, 37, 37]
 
-qcat_array = [["What planet does this character call home?", "Characters"],
+qcat_array = [["What planet does #{$sol_arr[0]} call home?", "Characters"],
               ["Which film debuted in theaters first?", "Films"],
               ["Of the below planets, which is the largest?", "Planets"],
               ["On average, which of the following species is shortest?","Species"],
@@ -15,7 +15,7 @@ qcat_array = [["What planet does this character call home?", "Characters"],
               ["Which film debuted in theaters last?", "Films"],
               ["Of the planets below, which one has the biggest population?", "Planets"],
               ["Which of the following Starships is the largest?", "Starships"],
-              ["On what planet does this species primarily live?", "Species"]]
+              ["On what planet does the species #{$sol_arr[9]} primarily live?", "Species"]]
 
 questions_hash = {
                   "Characters" => ["Q1","Q6"],
@@ -41,20 +41,26 @@ end
 create_questions(qcat_array)
 
 #--------------------Creating Choices-------------------#
-solutions
 def create_choices
+  counter = 0
+10.times do
   Choice.create(
-    choice1: $choices2[0],
-    choice2: $choices2[1],
-    choice3: $choices2[2],
-    answer: $sol_arr[1])
+    answer: $sol_arr[counter])
+    counter = counter + 1
+    end
 end
 create_choices
 
 
 
 #-------------------Creating Qcs--------------------------#
-
+def create_qcs
+  counter = 0
+  Choice.create(
+    question_id:
+    choice_id:
+    )
+end
 
 
 

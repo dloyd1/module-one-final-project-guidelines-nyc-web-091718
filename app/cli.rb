@@ -1,17 +1,75 @@
 require_relative '../config/environment.rb'
 require_relative '../app/api.rb'
-
+require 'pry'
 
 def welcome
   puts "Welcome to Star Wars Trivia!"
 end
 
 def ask_question
-    puts "#{Question.all[1].question_text.to_s}"
-    puts "A. "
-    puts  "B."
-    puts  "C "
-    puts   "D "
+
+#---------Question 1-----------#
+puts "#{Question.all[0]}"
+puts "The answer choices are:"
+puts "#{Choice.all[0].answer}"
+answer = STDIN.gets.chomp.downcase
+puts "The correct answer is #{Choice.all[0].answer}."
+end
+binding.pry
+#---------Question 2-----------#
+
+
+
+#---------Question 3-----------#
+
+
+
+
+#---------Question 4-----------#
+
+
+
+
+#---------Question 5-----------#
+
+
+
+
+#---------Question 6-----------#
+
+
+
+
+#---------Question 7-----------#
+
+
+
+
+#---------Question 8-----------#
+
+
+
+
+#---------Question 9-----------#
+
+
+
+
+#---------Question 10-----------#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 end #end of ask method
 
 
