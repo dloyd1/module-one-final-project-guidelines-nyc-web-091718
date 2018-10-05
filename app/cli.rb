@@ -11,11 +11,13 @@ def ask_question
 #---------Question 1-----------#
 puts "#{Question.all[0]}"
 puts "The answer choices are:"
-puts "#{Choice.all[0].answer}"
+puts "A: #{Choice.all[0].answer}"
+puts "B: #{Choice.all[0].choice1}"
+puts "C: #{Choice.all[0].choice2}"
+puts "D: #{Choice.all[0].choice2}"
 answer = STDIN.gets.chomp.downcase
 puts "The correct answer is #{Choice.all[0].answer}."
 end
-binding.pry
 #---------Question 2-----------#
 
 
@@ -70,7 +72,7 @@ binding.pry
 
 
 
-end #end of ask method
+#end #end of ask method
 
 
 # def get_answer

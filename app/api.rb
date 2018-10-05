@@ -458,8 +458,8 @@ $sol_arr << $bigship[$cargo.index($cargo.max)] #match crew size with ship name
 
 #Q10-------Species = Homeworld-------#
 
-api_text = JSON.parse(RestClient.get(url_array[4] + "/#{$nums[9]}"))
-hw1 = api_text["homeworld"]
+api_text2 = JSON.parse(RestClient.get(url_array[4] + "/#{$nums[9]}"))
+hw1 = api_text2["homeworld"]
 api_text2 = JSON.parse(RestClient.get(hw1)) #link from species to homeworld
 snam = api_text2["name"]
 $sol_arr << snam
